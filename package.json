@@ -6,9 +6,12 @@
     "start": "ng serve --open",
     "dev": "ng serve --open --live-reload --poll=500",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-pwa-demo": "node dist/angular-pwa-demo/server/server.mjs"
+    "serve:ssr:angular-pwa-demo": "node dist/angular-pwa-demo/server/server.mjs",
+    "deploy": "ng deploy --base-href=https://jquezada1984.github.io/soloAngular/",
+    "deploy:gh-pages": "ng deploy --base-href=https://jquezada1984.github.io/soloAngular/"
   },
   "prettier": {
     "overrides": [
@@ -44,6 +47,7 @@
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
+    "angular-cli-ghpages": "^2.0.3",
     "jasmine-core": "~5.7.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

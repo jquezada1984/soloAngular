@@ -96,6 +96,16 @@
               "src/styles.scss"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/soloAngular/",
+            "repo": "https://github.com/jquezada1984/soloAngular.git",
+            "branch": "gh-pages",
+            "name": "jquezada1984",
+            "email": "jquezada1984@gmail.com"
+          }
         }
       }
     }
