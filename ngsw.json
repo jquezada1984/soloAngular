@@ -1,0 +1,83 @@
+{
+  "configVersion": 1,
+  "timestamp": 1751929185046,
+  "index": "https://jquezada1984.github.io/soloAngular/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://jquezada1984.github.io/soloAngular/388.7eebf00caccde326.js",
+        "https://jquezada1984.github.io/soloAngular/577.33756447995ab289.js",
+        "https://jquezada1984.github.io/soloAngular/939.c55db210a7050c92.js",
+        "https://jquezada1984.github.io/soloAngular/favicon.ico",
+        "https://jquezada1984.github.io/soloAngular/index.html",
+        "https://jquezada1984.github.io/soloAngular/main.2b564168148401b9.js",
+        "https://jquezada1984.github.io/soloAngular/manifest.webmanifest",
+        "https://jquezada1984.github.io/soloAngular/runtime.ce0b6ddbf0aa7bd0.js",
+        "https://jquezada1984.github.io/soloAngular/styles.e287f4c06e0a02bf.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-freshness",
+      "patterns": [
+        "https:\\/\\/api\\.tu-dominio\\.com\\/.*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": 3600000,
+      "timeoutMs": 5000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "https://jquezada1984.github.io/soloAngular/388.7eebf00caccde326.js": "cbf5b438f3e3f306f5bd6f8b303c77eae676849c",
+    "https://jquezada1984.github.io/soloAngular/577.33756447995ab289.js": "c8a919babdbf736671e5c4abfd7afd26da16d3a3",
+    "https://jquezada1984.github.io/soloAngular/939.c55db210a7050c92.js": "ccd6245e76f11dfed9432932a986cd3c2fda6526",
+    "https://jquezada1984.github.io/soloAngular/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "https://jquezada1984.github.io/soloAngular/index.html": "571afe414f2576f7a0bf068320a2eff871ea1b1a",
+    "https://jquezada1984.github.io/soloAngular/main.2b564168148401b9.js": "f4170ee2f76f4e44f1d3754522ec7c7b45c71a2a",
+    "https://jquezada1984.github.io/soloAngular/manifest.webmanifest": "3bd427f5e170aacb9e0c936e99f3c4c667540a19",
+    "https://jquezada1984.github.io/soloAngular/runtime.ce0b6ddbf0aa7bd0.js": "bc49a38b7e776b55ab3838ef8a990b54cf53babb",
+    "https://jquezada1984.github.io/soloAngular/styles.e287f4c06e0a02bf.css": "d83164a7ad57e4dd561b2b81ce23ad083a562e14"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
