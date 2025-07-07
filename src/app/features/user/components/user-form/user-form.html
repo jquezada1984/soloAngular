@@ -1,0 +1,121 @@
+<div class="modal-form-container">
+  <div class="modal-form-content">
+    <div class="modal-form-header">
+      <h2 class="modal-form-title">{{ isEditing ? '✏️ Editar Usuario' : '➕ Nuevo Usuario' }}</h2>
+      <button class="btn btn-secondary" (click)="closeForm()">✕</button>
+    </div>
+
+    <div class="modal-form-body">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name" class="form-label">Nombre completo *</label>
+          <input 
+            type="text" 
+            id="name" 
+            formControlName="name" 
+            class="form-input"
+            placeholder="Ingresa el nombre completo">
+          <div class="error-message" *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+            El nombre es requerido
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email *</label>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email" 
+            class="form-input"
+            placeholder="ejemplo@email.com">
+          <div class="error-message" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+            <span *ngIf="userForm.get('email')?.errors?.['required']">El email es requerido</span>
+            <span *ngIf="userForm.get('email')?.errors?.['email']">Ingresa un email válido</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="age" class="form-label">Edad *</label>
+            <input 
+              type="number" 
+              id="age" 
+              formControlName="age" 
+              class="form-input"
+              placeholder="25"
+              min="1" 
+              max="120">
+            <div class="error-message" *ngIf="userForm.get('age')?.invalid && userForm.get('age')?.touched">
+              <span *ngIf="userForm.get('age')?.errors?.['required']">La edad es requerida</span>
+              <span *ngIf="userForm.get('age')?.errors?.['min']">La edad debe ser mayor a 0</span>
+              <span *ngIf="userForm.get('age')?.errors?.['max']">La edad debe ser menor a 120</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="form-label">Teléfono *</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              formControlName="phone" 
+              class="form-input"
+              placeholder="+34 123 456 789">
+            <div class="error-message" *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.touched">
+              El teléfono es requerido
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="city" class="form-label">Ciudad *</label>
+          <input 
+            type="text" 
+            id="city" 
+            formControlName="city" 
+            class="form-input"
+            placeholder="Madrid">
+          <div class="error-message" *ngIf="userForm.get('city')?.invalid && userForm.get('city')?.touched">
+            La ciudad es requerida
+          </div>
+        </div>
+
+        <div class="photo-section">
+          <label class="form-label">Foto de usuario</label>
+          <div *ngIf="photoDataUrl; else noPhoto">
+            <img [src]="photoDataUrl" alt="Foto de usuario" class="photo-preview" />
+            <button type="button" class="btn btn-danger" (click)="removePhoto()">Eliminar foto</button>
+          </div>
+          <ng-template #noPhoto>
+            <button type="button" class="btn btn-primary" (click)="openCamera()">Tomar foto</button>
+          </ng-template>
+        </div>
+
+        <!-- Modal de cámara -->
+        <div class="camera-modal" *ngIf="isCameraOpen">
+          <div class="camera-controls">
+            <label *ngIf="availableDevices.length > 1">
+              Cámara:
+              <select (change)="onDeviceChange($event)" [value]="selectedDeviceId">
+                <option *ngFor="let device of availableDevices" [value]="device.deviceId">{{device.label || 'Cámara ' + (availableDevices.indexOf(device)+1)}}</option>
+              </select>
+            </label>
+            <button type="button" class="btn btn-secondary" (click)="stopCamera()">Cancelar</button>
+          </div>
+          <video #video autoplay playsinline></video>
+          <button type="button" class="btn btn-primary" (click)="capturePhoto()">Capturar foto</button>
+          <canvas #canvas style="display:none;"></canvas>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" (click)="closeForm()">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid || isSubmitting">
+            <span *ngIf="isSubmitting">Guardando...</span>
+            <span *ngIf="!isSubmitting">{{ isEditing ? 'Actualizar' : 'Crear' }}</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> 

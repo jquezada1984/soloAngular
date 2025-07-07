@@ -1,0 +1,73 @@
+<div class="list-container">
+  <app-nav-bar></app-nav-bar>
+  
+  <div class="list-header">
+    <h1 class="list-title">👥 Lista de Usuarios</h1>
+    <button class="add-btn" (click)="addUser()">
+      ➕ Agregar Usuario
+    </button>
+  </div>
+
+  <div class="datagrid-container" *ngIf="users.length > 0; else noUsers">
+    <table class="datagrid-table">
+      <thead class="datagrid-header">
+        <tr>
+          <th>Usuario</th>
+          <th>Edad</th>
+          <th>Teléfono</th>
+          <th>Ciudad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="datagrid-body">
+        <tr *ngFor="let user of users; trackBy: trackByUserId">
+          <td>
+            <div class="datagrid-user-info">
+              <div class="datagrid-avatar" *ngIf="!user.photo">
+                {{ user.name.charAt(0).toUpperCase() }}
+              </div>
+              <img 
+                *ngIf="user.photo" 
+                [src]="user.photo.startsWith('data:') ? user.photo : (environment.baseApiUrl + user.photo)" 
+                [alt]="user.name"
+                class="datagrid-user-photo"
+                (error)="onImageError($event)">
+              <div>
+                <div class="datagrid-user-name">{{ user.name }}</div>
+                <div class="datagrid-user-email">{{ user.email }}</div>
+              </div>
+            </div>
+          </td>
+          <td>{{ user.age }} años</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.city }}</td>
+          <td>
+            <div class="datagrid-actions">
+              <button class="datagrid-action-btn datagrid-edit-btn" (click)="editUser(user)">
+                ✏️ Editar
+              </button>
+              <button *ngIf="user.id !== undefined" class="datagrid-action-btn datagrid-delete-btn" (click)="deleteUser(user.id)">
+                🗑️ Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noUsers>
+    <div class="no-items">
+      <p>No hay usuarios registrados. ¡Agrega el primero!</p>
+    </div>
+  </ng-template>
+
+  <!-- Formulario Modal -->
+  <app-user-form
+    *ngIf="showForm"
+    [user]="selectedUser"
+    [isVisible]="showForm"
+    (save)="onSaveUser($event)"
+    (close)="onCloseForm()">
+  </app-user-form>
+</div> 

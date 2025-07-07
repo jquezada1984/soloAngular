@@ -1,0 +1,40 @@
+/* Estilos responsive para listas y datagrid */
+
+@media (max-width: 768px) {
+  .list-container {
+    padding: 1rem;
+  }
+  
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .datagrid-container {
+    overflow-x: auto;
+  }
+
+  .datagrid-table {
+    min-width: 600px;
+  }
+
+  .datagrid-header th,
+  .datagrid-body td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .datagrid-actions {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .datagrid-action-btn {
+    min-width: 60px;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+  }
+} 

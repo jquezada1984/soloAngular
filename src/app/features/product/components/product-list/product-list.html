@@ -1,0 +1,69 @@
+<div class="list-container">
+  <app-nav-bar></app-nav-bar>
+  
+  <div class="list-header">
+    <h1 class="list-title">📦 Lista de Productos</h1>
+    <button class="add-btn" (click)="addProduct()">
+      ➕ Agregar Producto
+    </button>
+  </div>
+
+  <div class="datagrid-container" *ngIf="products.length > 0; else noProducts">
+    <table class="datagrid-table">
+      <thead class="datagrid-header">
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Código</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="datagrid-body">
+        <tr *ngFor="let product of products; trackBy: trackByProductId">
+          <td>
+            <div class="datagrid-product-info">
+              <div class="datagrid-icon">
+                📦
+              </div>
+              <div>
+                <div class="datagrid-product-name">{{ product.name }}</div>
+                <div class="datagrid-product-category">{{ product.category }}</div>
+              </div>
+            </div>
+          </td>
+          <td class="datagrid-price">{{ product.price | currency:'EUR':'symbol':'1.2-2' }}</td>
+          <td class="datagrid-stock">{{ product.stock }} unidades</td>
+          <td>{{ product.code }}</td>
+          <td>{{ product.description }}</td>
+          <td>
+            <div class="datagrid-actions">
+              <button class="datagrid-action-btn datagrid-edit-btn" (click)="editProduct(product)">
+                ✏️ Editar
+              </button>
+              <button class="datagrid-action-btn datagrid-delete-btn" (click)="deleteProduct(product.id)">
+                🗑️ Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noProducts>
+    <div class="no-items">
+      <p>No hay productos registrados. ¡Agrega el primero!</p>
+    </div>
+  </ng-template>
+
+  <!-- Formulario Modal -->
+  <app-product-form
+    *ngIf="showForm"
+    [product]="selectedProduct"
+    [isVisible]="showForm"
+    (save)="onSaveProduct($event)"
+    (close)="onCloseForm()">
+  </app-product-form>
+</div> 

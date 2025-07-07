@@ -1,0 +1,162 @@
+/* Estilos para DataGrid/Tabla */
+
+.datagrid-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.datagrid-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.datagrid-header {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.datagrid-header th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.datagrid-body tr {
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+
+.datagrid-body tr:hover {
+  background-color: #f8f9fa;
+}
+
+.datagrid-body tr:last-child {
+  border-bottom: none;
+}
+
+.datagrid-body td {
+  padding: 1rem;
+  vertical-align: middle;
+  color: #333;
+}
+
+.datagrid-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-right: 0.75rem;
+}
+
+.datagrid-user-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.75rem;
+  border: 2px solid #667eea;
+}
+
+.datagrid-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-right: 0.75rem;
+}
+
+.datagrid-user-info {
+  display: flex;
+  align-items: center;
+}
+
+.datagrid-user-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.datagrid-user-email {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.datagrid-product-info {
+  display: flex;
+  align-items: center;
+}
+
+.datagrid-product-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.datagrid-product-category {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.datagrid-price {
+  font-weight: 700;
+  color: #28a745;
+}
+
+.datagrid-stock {
+  font-weight: 500;
+  color: #666;
+}
+
+.datagrid-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.datagrid-action-btn {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  min-width: 80px;
+}
+
+.datagrid-edit-btn {
+  background: #007bff;
+  color: white;
+}
+
+.datagrid-edit-btn:hover {
+  background: #0056b3;
+}
+
+.datagrid-delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.datagrid-delete-btn:hover {
+  background: #c82333;
+} 
