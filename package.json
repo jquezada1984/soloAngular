@@ -10,8 +10,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular-pwa-demo": "node dist/angular-pwa-demo/server/server.mjs",
-    "deploy": "ng deploy --base-href=https://jquezada1984.github.io/soloAngular/",
-    "deploy:gh-pages": "ng deploy --base-href=https://jquezada1984.github.io/soloAngular/"
+    "deploy": "ngh --dir=dist/angular-pwa-demo --no-silent",
+    "deploy:gh-pages": "ngh --dir=dist/angular-pwa-demo --no-silent"
   },
   "prettier": {
     "overrides": [
